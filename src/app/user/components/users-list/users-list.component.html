@@ -1,0 +1,67 @@
+<div class="p-5 text-danger">
+  <p>To do: implement sort and paginator on table.</p>
+</div>
+<div *ngIf="(users$ | async)?.length==0">
+  <mat-card class="bg-secondary">
+    <mat-card-content class="text-center text-white">
+      No Items Found
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="mat-elevation-z3" *ngIf="(users$ | async)?.length!=0">
+  <table mat-table class="full-width-table" [dataSource]="users$|async" aria-label="Users">
+    <!-- FirstName Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+    </ng-container>
+    <!-- LastName Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="dateCreated">
+      <th mat-header-cell *matHeaderCellDef> Creation Date </th>
+      <td mat-cell *matCellDef="let row">
+        <span [ngClass]="(row.isActive) ? '': 'text-sm text-muted'">
+          {{row.dateCreated|date:'MMM d, y hh:mm:ss a'}}
+        </span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="dateModified">
+      <th mat-header-cell *matHeaderCellDef> Modification Date </th>
+      <td mat-cell *matCellDef="let row">
+        <span [ngClass]="(row.isActive) ? '': 'text-sm text-muted'">
+          {{row.dateModified|date:'MMM d, y hh:mm:ss a'}}
+        </span>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="isActive">
+      <th mat-header-cell *matHeaderCellDef> Active/Inactive </th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button *ngIf="row.isActive" (click)="toggleIsActive(row)">
+          <mat-icon color="primary">done</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="!row.isActive" (click)="toggleIsActive(row)">
+          <mat-icon color="warn">clear</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let row">
+        <button class="mx-1" mat-mini-fab color="accent" (click)="editItem(row.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="mx-1" mat-mini-fab color="warn" (click)="deleteItem(row)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator #paginator [length]="(users$|async).length" [pageIndex]="0" [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50, 100, 250]">
+  </mat-paginator>
+</div>

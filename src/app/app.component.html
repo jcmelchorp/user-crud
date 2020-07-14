@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <button mat-icon-button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()"
+    [ngClass]="{ hidden: !deviceSm }">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>User management</span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="!deviceSm" role="navigation" [mode]="!deviceSm ? 'side' : 'over'">
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['users']">Users</a>
+      <a mat-list-item [routerLink]="['users/roles']">Roles</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

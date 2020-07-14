@@ -1,0 +1,19 @@
+<div class="p-5">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let user of users">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{user.firstName|titlecase}}
+        </mat-panel-title>
+        <mat-panel-description>
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list>
+        <mat-list-item>
+          {{(user)}}
+        </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
