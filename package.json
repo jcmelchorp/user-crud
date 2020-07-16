@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "npx concurrently \"npx json-server --watch local-server/database.json --id 'id'\" \"ng serve\" ",
+    "start": "npx concurrently \"npx json-server --watch local-server/database.json \" \"ng serve\" ",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,6 +25,7 @@
     "@ngrx/effects": "^9.2.0",
     "@ngrx/entity": "^9.2.0",
     "@ngrx/router-store": "^9.2.0",
+    "@ngrx/schematics": "^9.2.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
     "bootstrap": "4.5.0",

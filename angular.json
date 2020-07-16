@@ -133,6 +133,7 @@
   },
   "defaultProject": "user-crud",
   "cli": {
-    "analytics": "44a98dd6-0ac7-4a9d-b971-665600fbe734"
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "817bad9a-e0b1-45e8-95df-ac468d77c61e"
   }
 }

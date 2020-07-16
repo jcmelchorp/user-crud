@@ -126,4 +126,69 @@ export class UserEffect {
       )
     )
   );
+  @Effect()
+  loadAdmins$: Observable<Action> = this.actions$.pipe(
+    ofType<userActions.LoadAdminUsers>(userActions.UserActionTypes.LOAD_ADMINS),
+    mergeMap((action: userActions.LoadAdminUsers) =>
+      this.userService.getUsersInRole('admin').pipe(
+        map(
+          (userIds: string[]) =>
+            new userActions.LoadAdminUsersSuccess(userIds)
+        ),
+        catchError(
+          err =>
+            of(new userActions.LoadAdminUsersFail(err))
+        )
+      )
+    )
+  );
+  @Effect()
+  loadTeachers$: Observable<Action> = this.actions$.pipe(
+    ofType<userActions.LoadTeacherUsers>(userActions.UserActionTypes.LOAD_TEACHERS),
+    mergeMap((action: userActions.LoadTeacherUsers) =>
+      this.userService.getUsersInRole('teachers').pipe(
+        map(
+          (userIds: string[]) =>
+            new userActions.LoadTeacherUsersSuccess(userIds)
+        ),
+        catchError(
+          err =>
+            of(new userActions.LoadTeacherUsersFail(err))
+        )
+      )
+    )
+  );
+  @Effect()
+  loadStudents$: Observable<Action> = this.actions$.pipe(
+    ofType<userActions.LoadStudentUsers>(userActions.UserActionTypes.LOAD_STUDENTS),
+    mergeMap((action: userActions.LoadStudentUsers) =>
+      this.userService.getUsersInRole('students').pipe(
+        map(
+          (userIds: string[]) =>
+            new userActions.LoadStudentUsersSuccess(userIds)
+        ),
+        catchError(
+          err =>
+            of(new userActions.LoadStudentUsersFail(err))
+        )
+      )
+    )
+  );
+  @Effect()
+  loadParents$: Observable<Action> = this.actions$.pipe(
+    ofType<userActions.LoadParentUsers>(userActions.UserActionTypes.LOAD_PARENTS),
+    mergeMap((action: userActions.LoadParentUsers) =>
+      this.userService.getUsersInRole('parents').pipe(
+        map(
+          (userIds: string[]) =>
+            new userActions.LoadParentUsersSuccess(userIds)
+        ),
+        catchError(
+          err =>
+            of(new userActions.LoadParentUsersFail(err))
+        )
+      )
+    )
+  );
+  // TODO: Add User to Role & Remove User to Role
 }

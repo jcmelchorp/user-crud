@@ -1,3 +1,4 @@
+import { UserDetailsComponent } from './../user-details/user-details.component';
 import { NotificationService } from './../../services/notification.service';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,7 +10,7 @@ import { Store, select } from '@ngrx/store';
 import * as fromUser from '../../state/user.reducer';
 import * as userActions from '../../state/user.actions';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ConfirmUserComponent } from '../confirm-user/confirm-user.component';
 
 @Component({
@@ -52,7 +53,7 @@ export class UsersListComponent implements OnInit {
     dialogRef.componentInstance.confirmation.subscribe((confirmation: boolean) => {
       if (confirmation) {
         this.store.dispatch(new userActions.DeleteUser(user.id));
-        this.notification.showNotification('User: "' + user.firstName + ' ' + user.lastName + '" was deleted', null, 5);
+        this.notification.showNotification('User: "' + user.firstName + ' ' + user.lastName + '" was deleted', 'success', 5000);
       }
     });
   }
@@ -63,28 +64,45 @@ export class UsersListComponent implements OnInit {
 
   toggleIsActive(user: User) {
     console.log(user);
-    const newUser = {
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      username: user.username,
-      passwordHash: user.passwordHash,
-      email: user.email,
-      //rolesIds?: string[];
-      //coursesIds?: string[];
-      //photoUrl?: string;
-      dateOfBirth: user.dateOfBirth,
-      gender: user.gender,
-      isOnline: user.isOnline,
-      isTeacher: user.isTeacher,
-      isStudent: user.isStudent,
-      isAdmin: user.isAdmin,
-      isActive: !user.isActive,
-      dateCreated: user.dateCreated,
-      dateModified: new Date(Date.now())
-    };
+    const newUser = user;
+    /*     const newUser = {
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          username: user.username,
+          passwordHash: user.passwordHash,
+          email: user.email,
+          //rolesIds?: string[];
+          //coursesIds?: string[];
+          //photoUrl?: string;
+          dateOfBirth: user.dateOfBirth,
+          gender: user.gender,
+          isOnline: user.isOnline,
+          isParent: user.isParent,
+          isTeacher: user.isTeacher,
+          isStudent: user.isStudent,
+          isAdmin: user.isAdmin,
+          isActive: !user.isActive,
+          dateCreated: user.dateCreated,
+          dateModified: new Date(Date.now())
+        }; */
     this.store.dispatch(new userActions.UpdateUser(newUser));
     this.notification.showNotification(
-      'User: "' + newUser.firstName + ' ' + newUser.lastName + '" was ' + [(newUser.isActive) ? 'Activated' : 'Deactivated'], null, 5);
+      'User: "' +
+      newUser.firstName + ' ' +
+      newUser.lastName + '" was ' +
+      [(newUser.isActive) ? 'Activated' : 'Deactivated'],
+      'success', 5);
+  }
+  userDetailsDialog(user: User) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = user;
+    dialogConfig.width = '350px';
+    const dialogRef = this.dialog.open(UserDetailsComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(
+      data => console.log('Dialog output:', data)
+    );
   }
 }

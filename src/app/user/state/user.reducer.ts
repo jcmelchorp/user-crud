@@ -99,6 +99,58 @@ export function userReducer(state = initialState, action: userActions.Actions): 
     default: {
       return state;
     }
+    /* case userActions.UserActionTypes.LOAD_ADMINS_SUCCESS: {
+      return userAdapter.addAll(action.payload, {
+        ...state,
+        loading: false,
+        loaded: true
+      });
+    }
+    case userActions.UserActionTypes.LOAD_ADMINS_FAIL: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case userActions.UserActionTypes.LOAD_TEACHERS_SUCCESS: {
+      return userAdapter.addAll(action.payload, {
+        ...state,
+        loading: false,
+        loaded: true
+      });
+    }
+    case userActions.UserActionTypes.LOAD_TEACHERS_FAIL: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case userActions.UserActionTypes.LOAD_STUDENTS_SUCCESS: {
+      return userAdapter.addAll(action.payload, {
+        ...state,
+        loading: false,
+        loaded: true
+      });
+    }
+    case userActions.UserActionTypes.LOAD_STUDENTS_FAIL: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case userActions.UserActionTypes.LOAD_PARENTS_SUCCESS: {
+      return userAdapter.addAll(action.payload, {
+        ...state,
+        loading: false,
+        loaded: true
+      });
+    }
+    case userActions.UserActionTypes.LOAD_PARENTS_FAIL: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    } */
   }
 
 }

@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { userReducer } from './state/user.reducer';
 import { UserEffect } from './state/user.effects';
 import { UserNotificationComponent } from './shared/user-notification/user-notification.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { UserNotificationComponent } from './shared/user-notification/user-notif
     UsersListComponent,
     RolesComponent,
     UserNotificationComponent,
-    ConfirmUserComponent
+    ConfirmUserComponent,
+    UserDetailsComponent
   ],
   imports: [
     CommonModule,

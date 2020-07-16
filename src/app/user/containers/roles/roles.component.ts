@@ -1,7 +1,10 @@
+import { mergeMap, map } from 'rxjs/operators';
+import { UsersInRole } from './../../models/users-in-role.viewmodel';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Role } from '../../models/role.model';
 import { User } from '../../models/user.model';
+import { from, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-roles',
@@ -12,15 +15,13 @@ export class RolesComponent implements OnInit {
   panelOpenState = false;
   roles: Role[];
   users: User[];
-  constructor(private userService: UserService) { }
+  values$: any;
+  usersInRoles: UsersInRole[];
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getRoles().subscribe(r => {
-      this.roles = r;
-    });
-    /*  this.userService.getUsers().subscribe(users => {
-       this.users = users;
-     }); */
+    //const roles$ = this.userService.getRoles();
+    //const users$ = this.userService.getUsers();
   }
 
 }

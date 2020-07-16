@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>User details</h2>
+<mat-dialog-content>
+  <dl>
+    <dt>Name: </dt>
+    <dd>{{userDetails.firstName}} {{userDetails.lastName}}</dd>
+    <dt>E-mail: </dt>
+    <dd>{{userDetails.email}} </dd>
+    <dt>Username: </dt>
+    <dd>{{userDetails.username}}</dd>
+    <dt>Age: </dt>
+    <dd>{{age}}</dd>
+    <dt>Gender: </dt>
+    <dd>{{userDetails.gender}}</dd>
+    <dt>Roles: </dt>
+    <dd></dd>
+  </dl>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions>

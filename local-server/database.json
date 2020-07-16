@@ -1,81 +1,38 @@
 {
   "users": [
     {
-      "id": "b12bc2b6-3b63-4d8d-8505-b519148fb2eb",
-      "firstName": "Julio  ",
-      "lastName": "Melchor",
+      "id": "239793fd-66e1-409f-ae17-2ae524078c79",
+      "firstName": "Julio César",
+      "lastName": "Melchor Pinto",
       "username": "jmelchorp",
-      "email": "julio@gmail.com",
+      "email": "jcmelchorp@gmail.com",
       "dateOfBirth": "1983-11-04T06:00:00.000Z",
       "gender": "male",
       "isTeacher": true,
       "isStudent": true,
       "isAdmin": true,
       "isActive": true,
-      "dateCreated": "2020-07-14T01:57:52.298Z",
-      "dateModified": "2020-07-14T18:54:04.063Z"
+      "dateCreated": "2020-07-15T12:59:01.832Z",
+      "dateModified": "2020-07-15T13:01:33.285Z"
     },
     {
-      "id": "4065734a-12e4-4959-86d6-0b6ae9c7f91d",
-      "firstName": "Julio",
-      "lastName": "Melchor",
-      "username": "jmelchorp",
-      "email": "fadd@sfefaw",
-      "dateOfBirth": "1986-04-07T06:00:00.000Z",
-      "gender": "male",
-      "isTeacher": false,
+      "id": "b283b76c-b2ca-4d07-bb6d-5ebc5bfdca83",
+      "firstName": "María Fernanda",
+      "lastName": "Melchor Pinto",
+      "username": "fmelchorp",
+      "email": "fernanda.melchor@gmail.com",
+      "dateOfBirth": "1982-06-03T06:00:00.000Z",
+      "gender": "female",
+      "isTeacher": true,
       "isStudent": true,
       "isAdmin": false,
       "isActive": true,
-      "dateCreated": "2020-07-14T14:36:57.066Z",
-      "dateModified": "2020-07-14T18:54:03.559Z"
+      "dateCreated": "2020-07-15T13:10:08.120Z",
+      "dateModified": "2020-07-15T13:10:52.135Z"
     }
   ],
-  "roles": [
-    {
-      "id": "94e16fe0-c488-11ea-8caa-694674a132c8",
-      "name": "Owner",
-      "isActive": true,
-      "dateCreated": "2020-07-13T21:42:28.063Z",
-      "dateModified": "2020-07-13T02:39:03.021Z",
-      "userIds": []
-    },
-    {
-      "id": "4e700820-c4ae-11ea-a5e8-4f85995fa4dd",
-      "name": "Admin",
-      "isActive": true,
-      "dateCreated": "2020-07-13T21:42:28.063Z",
-      "dateModified": "2020-07-13T02:39:03.021Z",
-      "userIds": []
-    },
-    {
-      "id": "3a63e730-c4b2-11ea-afee-f9ea7843cca7",
-      "name": "Teacher",
-      "isActive": true,
-      "dateCreated": "2020-07-13T21:42:28.063Z",
-      "dateModified": "2020-07-13T02:39:03.021Z",
-      "userIds": [
-        "98a6948a-376b-4e64-be17-27f6503bb8c6",
-        "9994dfaa-b59e-4763-a1de-143250bf1f97",
-        "82acd0b5-f594-4222-a746-352808a7a1d4",
-        "b12bc2b6-3b63-4d8d-8505-b519148fb2eb"
-      ]
-    },
-    {
-      "id": "9a43e730-v8b2-11ea-rkee-f9ea9843fer1",
-      "name": "Student",
-      "isActive": true,
-      "dateCreated": "2020-07-13T21:42:28.063Z",
-      "dateModified": "2020-07-13T02:39:03.021Z",
-      "userIds": [
-        "98a6948a-376b-4e64-be17-27f6503bb8c6",
-        "ae1b0a0e-abc7-416a-8ff3-712f84bd9c0c",
-        "3b186361-3cd9-4d5e-8cdc-2eea65b71c2c",
-        "9994dfaa-b59e-4763-a1de-143250bf1f97",
-        "82acd0b5-f594-4222-a746-352808a7a1d4",
-        "b12bc2b6-3b63-4d8d-8505-b519148fb2eb",
-        "4065734a-12e4-4959-86d6-0b6ae9c7f91d"
-      ]
-    }
-  ]
+  "owners": [],
+  "admins": [],
+  "teachers": [],
+  "students": []
 }

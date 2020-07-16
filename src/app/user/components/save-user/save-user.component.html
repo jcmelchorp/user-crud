@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>User</mat-card-title>
       <mat-card-subtitle>
-        <mat-slide-toggle #isActive color="primary" formControlName="isActive">
+        <mat-slide-toggle color="primary" formControlName="isActive">
           {{(userForm.value.isActive) ? 'activated' : 'deactivated'}}
         </mat-slide-toggle>
       </mat-card-subtitle>
@@ -12,15 +12,15 @@
       <!-- HIDDEN ID ------------------------------------------->
       <mat-form-field appearance="outline" hidden>
         <mat-label>ID</mat-label>
-        <input matInput type="text" #id formControlName="id">
+        <input matInput type="text" formControlName="id">
       </mat-form-field>
       <!-- FIRST NAME ------------------------------------------>
       <mat-form-field class="d-block" appearance="outline">
         <mat-label>First name</mat-label>
         <input matInput type="text" formControlName="firstName">
-        <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">
+        <!--  <mat-error *ngIf="userForm.controls['firstName'].hasError('required')">
           First name is <strong>required</strong>
-        </mat-error>
+        </mat-error> -->
         <mat-error *ngIf="userForm.controls['firstName'].hasError('pattern')">
           Invalid characters symbols
         </mat-error>
@@ -29,9 +29,9 @@
       <mat-form-field class="d-block" appearance="outline">
         <mat-label>Last name</mat-label>
         <input matInput type="text" formControlName="lastName">
-        <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">
+        <!-- <mat-error *ngIf="userForm.controls['lastName'].hasError('required')">
           Last name is <strong>required</strong>
-        </mat-error>
+        </mat-error> -->
         <mat-error *ngIf="userForm.controls['lastName'].hasError('pattern')">
           Invalid characters symbols
         </mat-error>
@@ -40,9 +40,9 @@
       <mat-form-field class="d-block" appearance="outline">
         <mat-label>Username</mat-label>
         <input matInput type="text" formControlName="username" [pattern]="unamePattern">
-        <mat-error *ngIf="userForm.controls['username'].hasError('required')">
+        <!-- <mat-error *ngIf="userForm.controls['username'].hasError('required')">
           Username is <strong>required</strong>
-        </mat-error>
+        </mat-error> -->
         <mat-error *ngIf="userForm.controls['username'].hasError('pattern')">
           You can use only letters and numbers
         </mat-error>
@@ -57,9 +57,9 @@
       <mat-form-field class="d-block" appearance="outline">
         <mat-label>E-mail</mat-label>
         <input matInput type="email" formControlName="email">
-        <mat-error *ngIf="userForm.controls['email'].hasError('required')">
+        <!--  <mat-error *ngIf="userForm.controls['email'].hasError('required')">
           E-mail is <strong>required</strong>
-        </mat-error>
+        </mat-error> -->
         <mat-error *ngIf="userForm.controls['email'].hasError('email')">
           This is not a valid e-mail syntax
         </mat-error>
@@ -88,7 +88,7 @@
       <button mat-icon-button class="mx-1" type="reset" (click)="onReset()" [disabled]="userForm.invalid">
         <mat-icon>clear</mat-icon>
       </button>
-      <button mat-raised-button class="mx-1 btn btn-info" type="submit" [disabled]="userForm.invalid">
+      <button mat-raised-button class="mx-1 btn btn-primary" type="submit" [disabled]="userForm.invalid">
         <mat-icon>save</mat-icon>
       </button> </mat-card-actions>
   </mat-card>

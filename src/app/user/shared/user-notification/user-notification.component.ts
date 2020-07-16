@@ -18,8 +18,8 @@ export class UserNotificationComponent implements OnInit {
       case 'success':
         return { type: this.data.snackType, icon: 'check' };
       case 'error':
-        return { type: this.data.snackType, icon: 'faults' };
-      case 'warn':
+        return { type: 'danger', icon: 'faults' };
+      case 'warning':
         return { type: this.data.snackType, icon: 'warning_outline' };
       case 'info':
         return { type: this.data.snackType, icon: 'info' };
