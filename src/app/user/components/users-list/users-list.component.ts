@@ -99,7 +99,7 @@ export class UsersListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = user;
-    dialogConfig.width = '350px';
+    //dialogConfig.width = '350px';
     const dialogRef = this.dialog.open(UserDetailsComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(
       data => console.log('Dialog output:', data)

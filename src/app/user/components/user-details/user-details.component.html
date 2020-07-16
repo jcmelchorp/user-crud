@@ -1,4 +1,10 @@
 <h2 mat-dialog-title>User details</h2>
+<mat-chip-list aria-label="User's roles">
+  <mat-chip *ngIf="userDetails.isAdmin" selected [color]="['warn']">Administrator</mat-chip>
+  <mat-chip *ngIf="userDetails.isTeacher" selected [color]="['accent']">Teacher</mat-chip>
+  <mat-chip *ngIf="userDetails.isParent" selected class="bg-info">Parent</mat-chip>
+  <mat-chip *ngIf="userDetails.isStudent" selected [color]="['primary']">Student</mat-chip>
+</mat-chip-list>
 <mat-dialog-content>
   <dl>
     <dt>Name: </dt>
@@ -11,10 +17,8 @@
     <dd>{{age}}</dd>
     <dt>Gender: </dt>
     <dd>{{userDetails.gender}}</dd>
-    <dt>Roles: </dt>
-    <dd></dd>
   </dl>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button class="mat-raised-button" (click)="close()">Close</button>
+<mat-dialog-actions class="flex-row-reverse">
+  <button class="mat-button" (click)="close()">Close</button>
 </mat-dialog-actions>

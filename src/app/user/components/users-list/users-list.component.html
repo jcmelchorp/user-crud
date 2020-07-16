@@ -61,11 +61,12 @@
         <button class="mx-1 text-dark" mat-icon-button (click)="editUser(row.id)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button class="mx-1" mat-icon-button color="warn" (click)="deleteUser(row)">
-          <mat-icon>delete</mat-icon>
-        </button>
-        <button class="mx-1 text-info" mat-icon-button (click)="userDetailsDialog(row)">
+
+        <button class="mx-1 text-dark" mat-icon-button (click)="userDetailsDialog(row)">
           <mat-icon>assignment_ind</mat-icon>
+        </button>
+        <button class="mx-1 text-dark" mat-icon-button (click)="deleteUser(row)">
+          <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>
